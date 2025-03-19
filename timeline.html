@@ -24,8 +24,8 @@
 <body>
     <div class="buttons">
         <a href="index.html" class="btn btn-bir">Sinh nhật</a>
-        <a href="timeline.html" class="btn btn-timeline">Dòng thời gian</a>
-        <a href="gallery.html" class="btn btn-gallery">Ảnh kĩ niệm</a>
+        <a href="timeline.html" class="btn btn-timeline">Bất Ngờ</a>
+        <a href="gallery.html" class="btn btn-gallery">Dòng Thời gian</a>
         <a style="display: none;"></a>
     </div>
     <div id="main">
@@ -33,21 +33,26 @@
             <div id="text">
                 <div id="code">
                     <!-- 4. CHỈNH SỬA LỜI CHÚC CỦA BẠN TẠI ĐÂY-->
-                    <font color="#3500ff"><span class="say">Chúc mừng sinh nhật người con gái anh yêu</span><br>
-                        <span class="say">Em có nhớ chúng ta yêu nhau được bao nhiêu ngày không ?</span><br>
-                        <span class="say">Anh thì nhớ rất rõ đấy.</span><br>
+                    <font color="#3500ff">
+                        <span class="say">Chúc mừng sinh nhật người con gái đẹp nhất hôm nay</span><br>
+                        <span class="say">Phương có biết hôm nay là ngày gì không ?</span><br>
                         <span class="say"> </span><br>
-                        <span class="say">Người ta nói bệnh nào cũng có thuốc chữa</span><br>
-                        <span class="say">Anh đã không tin điều đó nữa đến khi anh gặp em</span><br>
-                        <span class="say">Anh đã phát hiện ra anh đã mang một căn bệnh mà có lẽ,</span><br>
-                        <span class="say">Có lẽ sẽ không bao giờ có thuốc điều trị</span><br>
-                        <span class="say">Đó là căn bệnh hạnh phúc nhất mà anh mai mắn được mắc phải</span><br>
-                        <span class="say">Đó là bệnh yêu em quá nhiều</span><br>
-                        <span class="say">Yêu em cho đến khi nào anh không còn tồn tại <3< /span><br>
-                                <span class="say">Hãy cứ tin em nhé.</span><br>
-                                <span class="say">Chúc em sinh nhật vui vẽ.</span><br>
+                        <span class="say"> </span><br>
+                        <span class="say">Hôm nay là một ngày đặc biệt, </span><br>
+                        <span class="say">Vì có một người rất đặc biệt được sinh ra! </span><br>
+                        <span class="say"> </span><br>
+                        <span class="say">Chúc Phương luôn vui vẻ, hạnh phúc</span><br>
+                        <span class="say">Gặp nhiều may mắn và ngày càng xinh đẹp.</span><br>
+                        <span class="say">Hoặc ngày càng tuyệt vời như Phương vốn có</span><br>
+                        <span class="say">Hy vọng tuổi mới sẽ mang đến cho Phương thật nhiều điều tốt đẹp. </span><br>
+                        <span class="say">À… nếu có thêm một người luôn âm thầm quan tâm Phương</span><br>
+                        <span class="say">Thì cũng đừng bất ngờ nhé! 😉</span><br>
+                        <span class="say">Chúc Phương một sinh nhật thật ý nghĩa và tràn đầy niềm vui! 🎈✨</span><br>
+                        <span class="say">Yêu Phương cho đến khi nào anh không còn tồn tại <3 < /span><br>
+                                <span class="say">Hãy cứ tin Phương nhé.</span><br>
+                                <span class="say">Chúc Phương sinh nhật vui vẽ.</span><br>
                                 <span class="say"> </span><br>
-                                <span class="say"><span class="space"></span> -- Anh yêu Em --</span>
+                                <span class="say"><span class="space"></span> -- Anh yêu Phương --</span>
                     </font>
                     </p>
                 </div>
@@ -57,12 +62,27 @@
             <canvas id="canvas" width="1100" height="680"></canvas>
         </div>
     </div>
-
     <!-- Phần nhạc -->
     <audio id="player" autoplay loop>
-        <source src="./music/music.mp3" type="audio/mp3" />
+        <source src="./music/hpbd.MP3" type="audio/mp3" />
     </audio>
     <script>
+        const player = document.getElementById("player");
+
+        // Khi trang được tải
+        window.onload = function () {
+            // Lấy trạng thái nhạc từ LocalStorage
+            const savedTime = localStorage.getItem("audioTime");
+            if (savedTime) {
+                player.currentTime = parseFloat(savedTime);
+            }
+            player.play();
+        };
+
+        // Lưu thời gian hiện tại của nhạc vào LocalStorage khi người dùng rời khỏi trang
+        window.onbeforeunload = function () {
+            localStorage.setItem("audioTime", player.currentTime);
+        };
         (function () {
             var canvas = $('#canvas');
 
